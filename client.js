@@ -12,6 +12,11 @@ const connect = function() {
     console.log("Server says: ", data);
   });
 
+  conn.on("connect", () => {      //do something right after the first successful connection with Server:
+    console.log("Successfully connected to game server!");    //print a message for the player (Client) to be notified
+    conn.write("Name: JHO");      //send Server the name of the player (Client)
+  });
+
   return conn;
 };
 
