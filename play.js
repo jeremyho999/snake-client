@@ -1,3 +1,6 @@
+//const playerName = process.argv[2];
+//console.log(playerName);
+
 const { connect } = require("./client");
 
 const { setupInput } = require("./input");
