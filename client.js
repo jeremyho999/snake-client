@@ -17,19 +17,17 @@ const connect = function() {
     conn.write("Name: JHO");      //send Server the name of the player (Client)
   });
   
-  conn.on("connect", () => {
-    const intervalId = setInterval(() => {
-      conn.write("Move: up");
-    }, 50);
+  //conn.on("connect", () => {
+  //  const intervalId = setInterval(() => {
+  //    conn.write("Move: up");
+  //  }, 50);
 
-    setTimeout(() => {
-      clearInterval(intervalId);
-    }, 500);
-  });
-
+  //  setTimeout(() => {
+  //    clearInterval(intervalId);
+  //  }, 500);
+  //});
 
   return conn;
 };
-
 
 module.exports = { connect };

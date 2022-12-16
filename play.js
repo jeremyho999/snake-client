@@ -3,6 +3,6 @@ const { connect } = require("./client");
 const { setupInput } = require("./input");
 
 console.log("Connecting ...");
-connect();
-
-setupInput();
+//connect();  // after you pass the obj return from "connect()" into "setupInput()", you need to comment out this line!
+              // otherwise, "connect()" will be executed twice!
+setupInput(connect());
