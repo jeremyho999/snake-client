@@ -8,7 +8,7 @@ Before you can run this client, you will need to be running the server side whic
 
 ## Final Product
 
-![Screenshot of final product](#)
+![Screenshot of final product](https://github.com/jeremyho999/snake-client/blob/main/Final%20Product%20Screenshot.png)
 
 
 ## Getting Started
