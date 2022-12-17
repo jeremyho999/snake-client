@@ -1,11 +1,11 @@
-//const playerName = process.argv[2];
-//console.log(playerName);
-
 const { connect } = require("./client");
 
 const { setupInput } = require("./input");
 
 console.log("Connecting ...");
-//connect();  // after you pass the obj return from "connect()" into "setupInput()", you need to comment out this line!
-              // otherwise, "connect()" will be executed twice!
+
+/*
+** Pass the connection object returned from connect() into setupInput(),
+** so that Client/Player can use stdin/keyboard input to interact with Server:
+*/
 setupInput(connect());

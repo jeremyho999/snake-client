@@ -1,9 +1,7 @@
-const playerName = process.argv[2];
-//console.log(playerName);
+const IP = "localhost";   // Server's IP address
+const PORT = 50541;       // Server's PORT number
 
-const IP = "localhost";
-const PORT = 50541;
-
+// Create an object to handle user keyboard input for playing the game and sending messages:
 const inputKeys = {
   w: "Move: up",
   a: "Move: left",
@@ -16,7 +14,6 @@ const inputKeys = {
 };
 
 module.exports = {
-  playerName,
   IP,
   PORT,
   inputKeys

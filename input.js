@@ -1,41 +1,30 @@
 const { inputKeys } = require("./constants");
 
-// Stores the active TCP connection object:
+// Setup a variable to store the active TCP connection object:
 let connection;
 
-// setup a function used by stdin event listener:
+// Setup a function used by stdin event listener (to interact with Server):
 const handleUserInput = function(key) {
-  if (key === "\u0003") process.exit();
-
-  //if (key === "w") connection.write("Move: up");        //console.log("Move: up");
-  //if (key === "a") connection.write("Move: left");      //console.log("Move: left");  
-  //if (key === "s") connection.write("Move: down");      //console.log("Move: down");
-  //if (key === "d") connection.write("Move: right");     //console.log("Move: right");
-
-  //if (key === "i") connection.write("Say: How are you doing?");
-  //if (key === "j") connection.write("Say: Merci Boucoup!");
-  //if (key === "k") connection.write("Say: Good morning!");
-  //if (key === "l") connection.write("Say: Bonjour!");
+  if (key === "\u0003") process.exit();   // Handle CTRL+C user keyboard input for exiting the game.
+  
   for (const inputKey in inputKeys) {
     if (key === inputKey) connection.write(inputKeys[inputKey]);
-  }
+  }   // Handle other user input for playing the game and sending messages.
 };
 
-// setup interface to handle user input from stdin:
-const setupInput = function(conn) {
-  connection = conn;
+// Setup interface to handle user input from stdin (user keyboard):
+const setupInput = (conn) => {
+  connection = conn;    // Store the active TCP connection object in the "connection" variable.
 
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
 
-  // register an event listener for stdin, before you return the stdin obj:
+  // Register an event listener for stdin, before returning the stdin object:
   stdin.on("data", handleUserInput);
-
+  // This returned stdin object will allow us to listen for keyboard input and react to it:
   return stdin;
 };
-
-//setupInput();   //this line is only for testing this file separately!
 
 module.exports = { setupInput };
